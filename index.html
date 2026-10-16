@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Birthday Surprise For Ni Ketut Lestariani ❤️</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 50%, #ffe5ec 100%);
+            min-height: 100vh;
+        }
+
+        .font-cursive {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Glassmorphism card styling */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px rgba(225, 29, 72, 0.12);
+        }
+
+        /* Floating background elements */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(4deg); }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Cake & Flame Styling */
+        .flame {
+            width: 14px;
+            height: 22px;
+            background: linear-gradient(to top, #ff4500, #ffaa00, #ffff00);
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: flicker 0.6s infinite alternate;
+            box-shadow: 0 0 12px #ffaa00;
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1) rotate(-2deg); opacity: 0.9; }
+            100% { transform: translateX(-50%) scale(1.15) rotate(2deg); opacity: 1; }
+        }
+
+        .flame.extinguished {
+            display: none;
+        }
+
+        .smoke {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background: rgba(200, 200, 200, 0.7);
+            border-radius: 50%;
+            animation: smokeRise 1.5s ease-out forwards;
+        }
+
+        @keyframes smokeRise {
+            0% { opacity: 0.8; transform: translate(-50%, 0) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -40px) scale(3); }
+        }
+
+        /* Polaroid Effect */
+        .polaroid {
+            background: white;
+            padding: 10px 10px 20px 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .polaroid:hover {
+            transform: scale(1.03) rotate(0deg) !important;
+            box-shadow: 0 15px 30px rgba(225, 29, 72, 0.2);
+            z-index: 20;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f43f5e;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-slate-800 flex flex-col justify-between items-center p-3 sm:p-6 overflow-y-auto">
+
+    <audio id="bg-music" loop preload="auto" src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3"></audio>
+
+    <!-- Floating Background Particles Canvas -->
+    <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- Top Navigation & Sound Controls -->
+    <header class="w-full max-w-xl flex justify-between items-center z-10 mb-4 px-2">
+        <div class="flex items-center gap-2">
+            <span class="text-2xl">💖</span>
+            <span class="font-bold text-rose-600 text-sm sm:text-base tracking-tight">Special Birthday for Ni Ketut Lestariani</span>
+        </div>
+        <button id="music-btn" onclick="toggleAudio()" class="flex items-center gap-2 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full shadow-md hover:bg-rose-100 transition text-rose-600 font-semibold text-xs sm:text-sm">
+            <i data-lucide="music" class="w-4 h-4"></i>
+            <span id="music-text">Putar Musik</span>
+        </button>
+    </header>
+
+    <main class="w-full max-w-xl z-10 my-auto">
+        
+        <!-- SCREEN 1: WELCOME SCREEN -->
+        <section id="screen-welcome" class="glass-card rounded-3xl p-6 sm:p-8 text-center relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-rose-300 rounded-full blur-2xl opacity-50 pointer-events-none"></div>
+            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-pink-300 rounded-full blur-2xl opacity-50 pointer-events-none"></div>
+
+            <div class="animate-float inline-block mb-4">
+                <div class="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-tr from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white text-4xl shadow-lg mx-auto">
+                    🎁
+                </div>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-rose-600 mb-2">
+                Halo, Ni Ketut Lestariani! 💕
+            </h1>
+            <p class="text-slate-600 text-xs sm:text-sm mb-6 leading-relaxed">
+                Selamat Ulang Tahun yang ke-37! Hari ini (17 Oktober) adalah hari yang sangat spesial. 
+                Aku sudah menyiapkan kejutan manis ini khusus untukmu. Yuk selesaikan kuis kenangan indah kita dulu!
+            </p>
+
+            <div class="mb-6">
+                <label for="nickname-input" class="block text-xs font-semibold uppercase tracking-wider text-rose-500 mb-2">Nama Pemilik Senyum Terindah:</label>
+                <input type="text" id="nickname-input" placeholder="Ni Ketut Lestariani" value="Ni Ketut Lestariani" class="w-full px-4 py-3 rounded-xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-center font-semibold text-rose-700 bg-white shadow-inner text-sm">
+            </div>
+
+            <button onclick="startQuiz()" class="w-full bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg hover:shadow-rose-300/50 transform active:scale-95 transition-all flex items-center justify-center gap-2 text-base">
+                <span>🎵 Mulai Kuis & Putar Musik 💖</span>
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+            </button>
+        </section>
+
+        <!-- SCREEN 2: QUIZ SCREEN -->
+        <section id="screen-quiz" class="glass-card rounded-3xl p-6 sm:p-8 hidden relative">
+            <!-- Progress Bar -->
+            <div class="mb-6">
+                <div class="flex justify-between items-center mb-2">
+                    <span id="quiz-progress-text" class="text-xs font-bold text-rose-500 tracking-wide uppercase">Pertanyaan 1 dari 3</span>
+                    <span id="hearts-count" class="text-xs font-bold text-rose-600 flex items-center gap-1">
+                        ❤️❤️❤️
+                    </span>
+                </div>
+                <div class="w-full bg-rose-100 rounded-full h-2.5 overflow-hidden">
+                    <div id="quiz-progress-bar" class="bg-gradient-to-r from-rose-400 to-pink-500 h-2.5 rounded-full transition-all duration-500" style="width: 33%"></div>
+                </div>
+            </div>
+
+            <div class="text-center mb-6">
+                <h2 id="quiz-question" class="text-lg sm:text-xl font-bold text-slate-800 leading-snug">
+                    Teks Pertanyaan Kuis...
+                </h2>
+            </div>
+
+            <!-- Options Container -->
+            <div id="quiz-options" class="flex flex-col gap-3 mb-4">
+                <!-- Dynamic Buttons generated by JS -->
+            </div>
+
+            <!-- Toast Feedback -->
+            <div id="quiz-toast" class="hidden mt-4 p-3 bg-rose-100 border border-rose-300 text-rose-800 text-xs sm:text-sm rounded-xl text-center font-semibold">
+                <span id="quiz-toast-text">Pesan Petunjuk</span>
+            </div>
+        </section>
+
+        <!-- SCREEN 3: MINI GAME - COLLECT HEARTS -->
+        <section id="screen-game" class="glass-card rounded-3xl p-6 sm:p-8 text-center hidden relative">
+            <div class="inline-block bg-pink-100 text-rose-600 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                Mini Game Tantangan Cinta
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold text-rose-600 mb-2">Kumpulkan Energi Cinta! 💘</h2>
+            <p class="text-slate-600 text-xs sm:text-sm mb-6">
+                Ketuk/Klik <span class="font-bold text-rose-500">5 Hati Terbang</span> di area bawah ini untuk mengumpulkan energi dan membuka kejutan utama!
+            </p>
+
+            <div class="flex justify-center items-center gap-2 mb-4">
+                <span class="text-sm font-semibold text-slate-600">Energi Terkumpul:</span>
+                <span id="collected-score" class="text-xl font-bold text-rose-600">0</span>
+                <span class="text-sm font-semibold text-slate-600">/ 5</span>
+            </div>
+
+            <!-- Mini Game Interactive Area -->
+            <div id="game-field" class="relative w-full h-64 bg-gradient-to-b from-rose-50/60 to-pink-100/60 rounded-2xl border-2 border-dashed border-rose-300 overflow-hidden cursor-pointer">
+                <p id="game-field-hint" class="absolute inset-0 flex items-center justify-center text-rose-400 text-xs sm:text-sm font-medium pointer-events-none">
+                    Hati terbang akan muncul... Ketuk cepat!
+                </p>
+            </div>
+        </section>
+
+        <!-- SCREEN 4: CELEBRATION & BIRTHDAY CARD -->
+        <section id="screen-celebration" class="glass-card rounded-3xl p-6 sm:p-8 text-center hidden relative overflow-hidden">
+            
+            <div class="animate-bounce mb-2 inline-block">
+                <span class="bg-rose-100 text-rose-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-widest uppercase">
+                    🎉 Happy 37th Birthday! (17 Oktober) 🎉
+                </span>
+            </div>
+
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-red-500 font-cursive my-2">
+                Selamat Ulang Tahun, <span id="display-name">Ni Ketut Lestariani</span>! ❤️
+            </h1>
+
+            <p class="text-slate-600 text-xs sm:text-sm mb-6">
+                37 Tahun Usia yang Indah! Semoga panjang umur, selalu bahagia, dan makin sayang sama aku! 💕
+            </p>
+
+            <!-- INTERACTIVE VIRTUAL BIRTHDAY CAKE -->
+            <div class="my-6 bg-rose-50/80 p-5 rounded-2xl border border-rose-200 relative shadow-inner">
+                <p class="text-xs font-semibold text-rose-500 mb-4">
+                    🎂 Tiup lilinnya dengan mengetuk tiap nyala api atau tombol di bawah!
+                </p>
+
+                <!-- Visual Cake -->
+                <div class="relative w-48 h-36 mx-auto flex flex-col justify-end items-center my-2">
+                    <!-- Candles Row -->
+                    <div class="flex gap-6 z-10 mb-[-4px]">
+                        <!-- Candle 1 -->
+                        <div class="relative cursor-pointer group" onclick="extinguishCandle(1)">
+                            <div id="flame-1" class="flame"></div>
+                            <div id="smoke-1"></div>
+                            <div class="w-3 h-10 bg-gradient-to-b from-yellow-200 to-amber-400 rounded-t-sm shadow"></div>
+                        </div>
+                        <!-- Candle 2 -->
+                        <div class="relative cursor-pointer group" onclick="extinguishCandle(2)">
+                            <div id="flame-2" class="flame"></div>
+                            <div id="smoke-2"></div>
+                            <div class="w-3 h-12 bg-gradient-to-b from-pink-200 to-rose-400 rounded-t-sm shadow"></div>
+                        </div>
+                        <!-- Candle 3 -->
+                        <div class="relative cursor-pointer group" onclick="extinguishCandle(3)">
+                            <div id="flame-3" class="flame"></div>
+                            <div id="smoke-3"></div>
+                            <div class="w-3 h-10 bg-gradient-to-b from-sky-200 to-blue-400 rounded-t-sm shadow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Cake Top Tier -->
+                    <div class="w-36 h-12 bg-pink-300 rounded-t-xl border-b-4 border-pink-400 relative flex items-center justify-center shadow">
+                        <div class="w-full h-3 bg-white rounded-full opacity-80 absolute top-1"></div>
+                        <span class="text-[10px] sm:text-xs font-bold text-white tracking-wider">HAPPY BIRTHDAY</span>
+                    </div>
+                    <!-- Cake Bottom Tier -->
+                    <div class="w-48 h-16 bg-rose-400 rounded-b-2xl border-t-2 border-rose-300 relative flex items-center justify-center shadow-lg">
+                        <div class="w-full h-4 bg-pink-200 rounded-full opacity-60 absolute top-2"></div>
+                        <div class="flex gap-3 text-sm">🍓 🍒 🍓 🍒</div>
+                    </div>
+                </div>
+
+                <button onclick="blowAllCandles()" class="mt-4 bg-rose-500 hover:bg-rose-600 text-white font-semibold text-xs px-4 py-2 rounded-full shadow transition flex items-center gap-1.5 mx-auto">
+                    <i data-lucide="wind" class="w-4 h-4"></i>
+                    <span>Tiup Semua Lilin ✨</span>
+                </button>
+            </div>
+
+            <!-- Polaroid Memory Gallery -->
+            <div class="my-6">
+                <h3 class="text-xs sm:text-sm font-bold text-slate-700 mb-3 text-left flex items-center gap-1.5">
+                    <i data-lucide="camera" class="w-4 h-4 text-rose-500"></i>
+                    <span>Momen Manis Bersama</span>
+                </h3>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <!-- Polaroid 1 -->
+                    <div class="polaroid rounded-lg -rotate-2 cursor-pointer" onclick="openPhotoModal('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80', 'Kenangan Indah Bersamamu ❤️')">
+                        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" alt="Memory 1" class="w-full h-28 object-cover rounded mb-2" onerror="this.src='https://placehold.co/400x300/ffccd5/ff4d6d?text=Love+Memory'">
+                        <p class="font-cursive text-rose-600 font-bold text-sm">Senyummu 💖</p>
+                    </div>
+
+                    <!-- Polaroid 2 -->
+                    <div class="polaroid rounded-lg rotate-2 cursor-pointer" onclick="openPhotoModal('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80', 'Hari Bahagia Bersama 💕')">
+                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80" alt="Memory 2" class="w-full h-28 object-cover rounded mb-2" onerror="this.src='https://placehold.co/400x300/ffccd5/ff4d6d?text=Sweet+Moments'">
+                        <p class="font-cursive text-rose-600 font-bold text-sm">Kebahagiaan 🌸</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TYPEWRITER ROMANTIC LETTER WITH PROPER SPACING -->
+            <div class="bg-white p-5 sm:p-6 rounded-2xl border border-rose-200 text-left my-6 shadow-sm max-w-full overflow-hidden">
+                <div class="flex items-center gap-2 mb-4 pb-3 border-b border-rose-100">
+                    <i data-lucide="heart-handshake" class="w-5 h-5 text-rose-500"></i>
+                    <h3 class="font-bold text-rose-600 text-sm sm:text-base">Surat Cinta Khusus Untukmu</h3>
+                </div>
+                
+                <!-- Format Rapi Per Paragraf Berjarak Nyaman -->
+                <div id="love-letter-container" class="space-y-4 text-slate-700 text-xs sm:text-sm leading-relaxed font-normal break-words">
+                    <!-- Dynamic Typewriter Content Injected Here -->
+                </div>
+            </div>
+
+            <!-- Gift Voucher -->
+            <div class="bg-gradient-to-r from-pink-500 to-rose-500 text-white p-5 rounded-2xl shadow-lg my-6 text-left relative overflow-hidden">
+                <div class="absolute -right-4 -bottom-4 text-white/10 text-8xl font-bold">🎁</div>
+                <div class="flex justify-between items-start mb-2">
+                    <span class="bg-white/20 backdrop-blur px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase">Spesial Voucher Ultah</span>
+                    <i data-lucide="gift" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-bold text-base sm:text-lg mb-1">Voucher Bebas Minta Apa Saja! 🎟️</h4>
+                <p class="text-xs text-pink-100 mb-3">Berlaku selamanya khusus untuk pemilik senyum terindah hari ini!</p>
+                <div class="bg-white/10 border border-white/20 p-2.5 rounded-xl text-xs font-mono">
+                    KODE: <span class="font-bold text-yellow-300">ULTAH-SAYANG-FOREVER</span>
+                </div>
+            </div>
+
+            <!-- Action Button -->
+            <button onclick="triggerConfettiBurst()" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm">
+                <i data-lucide="party-popper" class="w-5 h-5"></i>
+                <span>Rayakan Lagi Dengan Konfeti! 🎉</span>
+            </button>
+        </section>
+
+    </main>
+
+    <!-- Photo Modal Container -->
+    <div id="photo-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden" onclick="closePhotoModal()">
+        <div class="bg-white p-4 rounded-2xl max-w-sm w-full text-center relative animate-scale-up" onclick="event.stopPropagation()">
+            <button onclick="closePhotoModal()" class="absolute top-2 right-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full p-1.5 transition">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+            <img id="modal-img" src="" alt="Photo Full" class="w-full h-64 object-cover rounded-xl mb-3 shadow">
+            <p id="modal-caption" class="font-cursive text-rose-600 text-lg font-bold"></p>
+        </div>
+    </div>
+
+    <footer class="w-full max-w-xl text-center text-rose-500/80 text-xs py-4 z-10 font-medium">
+        Dibuat dengan segenap cinta 💕 | Spesial Hari Ulang Tahun
+    </footer>
+
+    <script>
+        // Web Audio Synthesizer Engine & Sound Effects
+        let audioCtx = null;
+        let isPlayingAudio = false;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    audioCtx = new AudioContextClass();
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function playTone(freq, duration, type = 'sine', vol = 0.15) {
+            try {
+                initAudio();
+                if (!audioCtx) return;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) {
+                console.log("Audio FX error ignored:", e);
+            }
+        }
+
+        function playSoundFx(type) {
+            if (type === 'correct') {
+                playTone(523.25, 0.15, 'sine', 0.15);
+                setTimeout(() => playTone(659.25, 0.25, 'sine', 0.15), 120);
+            } else if (type === 'wrong') {
+                playTone(220, 0.25, 'sawtooth', 0.1);
+            } else if (type === 'pop') {
+                playTone(800, 0.1, 'sine', 0.2);
+            } else if (type === 'blow') {
+                playTone(150, 0.3, 'triangle', 0.15);
+            }
+        }
+
+        function playMusic() {
+            initAudio();
+            const musicAudio = document.getElementById('bg-music');
+            const musicBtnText = document.getElementById('music-text');
+            if (musicAudio) {
+                musicAudio.play().then(() => {
+                    isPlayingAudio = true;
+                    if (musicBtnText) musicBtnText.innerText = "Matikan Musik";
+                }).catch(e => {
+                    console.log("Autoplay ditahan oleh browser, memerlukan sentuhan pertama.", e);
+                    isPlayingAudio = false;
+                    if (musicBtnText) musicBtnText.innerText = "Putar Musik";
+                });
+            }
+        }
+
+        function toggleAudio() {
+            initAudio();
+            const musicAudio = document.getElementById('bg-music');
+            const musicBtnText = document.getElementById('music-text');
+            
+            if (isPlayingAudio) {
+                isPlayingAudio = false;
+                if (musicAudio) musicAudio.pause();
+                if (musicBtnText) musicBtnText.innerText = "Putar Musik";
+            } else {
+                playMusic();
+            }
+        }
+
+        // State Data
+        let userName = "Ni Ketut Lestariani";
+        let currentQuizIndex = 0;
+        let heartScore = 0;
+        let unlitCandles = 3;
+
+        const quizData = [
+            {
+                question: "Apa momen kegiatan jalan-jalan / kebersamaan pertama yang paling berkesan buat kita?",
+                options: [
+                    "Jalan-jalan santai ke mall",
+                    "Kegiatan bersama ke Karangasem 🚗✨",
+                    "Nonton bioskop bareng",
+                    "Kulineran malam"
+                ],
+                correct: 1,
+                sweetNote: "Bener banget! Perjalanan bersama ke Karangasem itu adalah momen awal kenangan indah kita! 🥰"
+            },
+            {
+                question: "Ingat gak, ada rasa unik & spesial apa saat momen ciuman pertama kita dulu? 🫣",
+                options: [
+                    "Rasa permen cokelat",
+                    "Masih ada rasa Tipat Tahu yang aku makan sebelumnya! 😋",
+                    "Rasa es krim vanilla",
+                    "Rasa kopi susu"
+                ],
+                correct: 1,
+                sweetNote: "Hahaha 100% Benar! Walaupun masih ada sensasi rasa Tipat Tahu, itu momen ciuman paling spesial & manis banget! 💋✨"
+            },
+            {
+                question: "Apa alasan utama aku dulu rela sampai pindah tempat bimbingan belajar (bimbel)?",
+                options: [
+                    "Cari tempat yang lebih adem",
+                    "Diajakin temen sekolah",
+                    "Agar bisa selalu bersama & dekat sama kamu! ❤️",
+                    "Biar dapet diskon bimbel"
+                ],
+                correct: 2,
+                sweetNote: "Yeyyy tepat sekali! Demi bisa terus dekat & selalu bersama kamu, apapun bakal aku usahain! 💕"
+            }
+        ];
+
+        function startQuiz() {
+            // Guarantee audio context activation on user click
+            playMusic();
+
+            const inputVal = document.getElementById('nickname-input').value.trim();
+            if (inputVal !== "") {
+                userName = inputVal;
+            }
+            document.getElementById('display-name').innerText = userName;
+
+            playSoundFx('correct');
+            document.getElementById('screen-welcome').classList.add('hidden');
+            document.getElementById('screen-quiz').classList.remove('hidden');
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            const q = quizData[currentQuizIndex];
+            document.getElementById('quiz-progress-text').innerText = `Pertanyaan ${currentQuizIndex + 1} dari ${quizData.length}`;
+            document.getElementById('quiz-progress-bar').style.width = `${((currentQuizIndex + 1) / quizData.length) * 100}%`;
+            document.getElementById('quiz-question').innerText = q.question;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            document.getElementById('quiz-toast').classList.add('hidden');
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left bg-white hover:bg-rose-50 border border-rose-200 text-slate-700 font-medium py-3 px-4 rounded-xl shadow-sm hover:border-rose-400 active:scale-98 transition text-xs sm:text-sm flex items-center justify-between";
+                btn.innerHTML = `<span>${opt}</span> <i data-lucide="chevron-right" class="w-4 h-4 text-rose-400"></i>`;
+                btn.onclick = () => handleQuizAnswer(idx);
+                optionsContainer.appendChild(btn);
+            });
+
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function handleQuizAnswer(selectedIndex) {
+            const q = quizData[currentQuizIndex];
+            const toast = document.getElementById('quiz-toast');
+            const toastText = document.getElementById('quiz-toast-text');
+
+            if (selectedIndex === q.correct) {
+                playSoundFx('correct');
+                toastText.innerText = q.sweetNote;
+                toast.className = "mt-4 p-3 bg-rose-100 border border-rose-300 text-rose-800 text-xs sm:text-sm rounded-xl text-center block font-semibold animate-fade-in";
+                
+                setTimeout(() => {
+                    currentQuizIndex++;
+                    if (currentQuizIndex < quizData.length) {
+                        renderQuizQuestion();
+                    } else {
+                        // Advance to Heart Collector Mini Game
+                        document.getElementById('screen-quiz').classList.add('hidden');
+                        document.getElementById('screen-game').classList.remove('hidden');
+                        spawnGameHeart();
+                    }
+                }, 1300);
+            } else {
+                playSoundFx('wrong');
+                toastText.innerText = "Tetot! Coba pilih jawaban yang paling manis & romantis ya! 😉";
+                toast.className = "mt-4 p-3 bg-amber-50 border border-amber-200 text-amber-700 text-xs sm:text-sm rounded-xl text-center block animate-bounce";
+            }
+        }
+
+        function spawnGameHeart() {
+            if (heartScore >= 5) return;
+            
+            const field = document.getElementById('game-field');
+            const hint = document.getElementById('game-field-hint');
+            if (hint) hint.style.display = 'none';
+
+            const heart = document.createElement('div');
+            heart.className = "absolute text-3xl sm:text-4xl cursor-pointer select-none transition-transform hover:scale-125 animate-pulse p-2";
+            heart.innerText = ["💖", "💗", "💓", "💝", "🎉"][Math.floor(Math.random() * 5)];
+            
+            // Random positioning inside box
+            const maxX = Math.max(20, field.clientWidth - 60);
+            const maxY = Math.max(20, field.clientHeight - 60);
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+            heart.style.left = `${x}px`;
+            heart.style.top = `${y}px`;
+
+            heart.onclick = () => {
+                playSoundFx('pop');
+                heartScore++;
+                document.getElementById('collected-score').innerText = heartScore;
+                heart.remove();
+
+                if (heartScore >= 5) {
+                    setTimeout(() => {
+                        triggerCelebration();
+                    }, 400);
+                } else {
+                    spawnGameHeart();
+                }
+            };
+
+            field.appendChild(heart);
+        }
+
+        function triggerCelebration() {
+            document.getElementById('screen-game').classList.add('hidden');
+            document.getElementById('screen-celebration').classList.remove('hidden');
+            
+            triggerConfettiBurst();
+            typeWriterLetter();
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function extinguishCandle(id) {
+            const flame = document.getElementById(`flame-${id}`);
+            const smoke = document.getElementById(`smoke-${id}`);
+            if (flame && !flame.classList.contains('extinguished')) {
+                flame.classList.add('extinguished');
+                playSoundFx('blow');
+                if (smoke) {
+                    smoke.className = "smoke";
+                }
+                unlitCandles--;
+                if (unlitCandles <= 0) {
+                    triggerConfettiBurst();
+                }
+            }
+        }
+
+        function blowAllCandles() {
+            [1, 2, 3].forEach(id => extinguishCandle(id));
+        }
+
+        function triggerConfettiBurst() {
+            playSoundFx('correct');
+            if (window.confetti) {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }
+        }
+
+        function typeWriterLetter() {
+            const letterParagraphs = [
+                "Selamat Ulang Tahun yang ke-37 untuk wanita yang paling aku cintai, Ni Ketut Lestariani! ❤️ (17 Oktober 1989 - 17 Oktober 2026)",
+                "Terima kasih sudah hadir di dalam hidupku dan membawa begitu banyak warna, cerita manis, tawa, serta kenangan indah—mulai dari momen perjalanan kebersamaan kita ke Karangasem, kenangan manis ciuman pertama yang berasa tipat tahu dan tak terlupakan, hingga perjuanganku dulu pindah bimbel hanya demi bisa selalu ada di dekatmu.",
+                "Di hari spesialmu ini, aku juga ingin menyampaikan permohonan maafku yang paling tulus dari lubuk hati. Maafkan aku ya jika selama ini aku sering membuatmu sedih, kecewa, atau kesal. Sungguh, dari hati yang terdalam aku sangat menyesalinya dan tidak pernah bermaksud melukai hatimu.",
+                "Ketahuilah, bagaimanapun keadaannya, cintaku padamu tidak pernah berkurang sedikit pun. Aku tetap sangat mencintaimu, menyayangimu, dan berjanji akan terus berusaha menjadi yang terbaik untuk membahagiakanmu.",
+                "Semoga di usia 37 tahun ini kamu selalu sehat, panjang umur, diberikan kemudahan dalam setiap langkahmu, dan selalu diliputi kebahagiaan. I love you so much, Ni Ketut Lestariani! 🎂✨💖"
+            ];
+
+            const letterContainer = document.getElementById('love-letter-container');
+            if (!letterContainer) return;
+            letterContainer.innerHTML = "";
+
+            let pIndex = 0;
+            let charIndex = 0;
+
+            function typeNext() {
+                if (pIndex < letterParagraphs.length) {
+                    if (charIndex === 0) {
+                        const p = document.createElement('p');
+                        p.className = "mb-3 leading-relaxed text-slate-700 text-xs sm:text-sm font-normal";
+                        p.id = `letter-p-${pIndex}`;
+                        letterContainer.appendChild(p);
+                    }
+
+                    const currentP = document.getElementById(`letter-p-${pIndex}`);
+                    const currentText = letterParagraphs[pIndex];
+
+                    currentP.textContent += currentText.charAt(charIndex);
+                    charIndex++;
+
+                    if (charIndex < currentText.length) {
+                        setTimeout(typeNext, 20);
+                    } else {
+                        pIndex++;
+                        charIndex = 0;
+                        setTimeout(typeNext, 200);
+                    }
+                }
+            }
+
+            typeNext();
+        }
+
+        // Modal Photo Controls
+        function openPhotoModal(src, caption) {
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal-caption').innerText = caption;
+            document.getElementById('photo-modal').classList.remove('hidden');
+        }
+
+        function closePhotoModal() {
+            document.getElementById('photo-modal').classList.add('hidden');
+        }
+
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 100;
+                this.size = Math.random() * 12 + 8;
+                this.speedY = Math.random() * 1.5 + 0.5;
+                this.speedX = Math.sin(Math.random() * Math.PI) * 0.5;
+                this.opacity = Math.random() * 0.5 + 0.3;
+            }
+
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                if (this.y < -20) {
+                    this.y = canvas.height + 20;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.globalAlpha = this.opacity;
+                ctx.font = `${this.size}px serif`;
+                ctx.fillText("💖", this.x, this.y);
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        for (let i = 0; i < 20; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.onload = () => {
+            animateParticles();
+            if (window.lucide) lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
